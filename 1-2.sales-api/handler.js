@@ -38,10 +38,10 @@ app.post("/checkout", connectDb, async (req, res, next) => {
     else {
       await req.conn.end()
       const now = new Date().toString()
-      const message = `도너츠 재고가 10 이하입니다. 도넛 생산을 요청합니다. \n메시지 작성 시각: ${now}`
+      const message = `도넛 재고가 10 이하입니다. 도넛 생산을 요청합니다. \n메시지 작성 시각: ${now}`
       const params = {
         Message: message,
-        Subject: '도너츠 재고 부족',
+        Subject: '도넛 재고 부족',
         MessageAttributes: {
           MessageAttributeProductId: {
             StringValue: product.product_id,
