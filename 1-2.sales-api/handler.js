@@ -49,7 +49,7 @@ app.post("/checkout", connectDb, async (req, res, next) => {
             DataType: "Number",
           },
           MessageAttributeProductCnt: {
-            StringValue: `10`,
+            StringValue: `${product.stock - 1}`,
             DataType: "Number",
           }
         },
