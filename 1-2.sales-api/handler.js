@@ -44,8 +44,8 @@ app.post("/checkout", connectDb, async (req, res, next) => {
         Subject: '도넛 재고 부족',
         MessageAttributes: {
           MessageAttributeProductId: {
-            StringValue: product.product_id,
-            DataType: "String",
+            StringValue: `${product.product_id}`,
+            DataType: "Number",
           },
           MessageAttributeProductCnt: {
             StringValue: `10`,
