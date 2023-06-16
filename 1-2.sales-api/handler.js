@@ -50,18 +50,14 @@ app.post("/checkout", connectDb, async (req, res, next) => {
           MessageAttributeProductCnt: {
             StringValue: `10`,
             DataType: "Number",
-          },
-          MessageAttributeRequester: {
-            StringValue: `도넛관리 담당자`,
-            DataType: "String",
           }
         },
 
         TopicArn: process.env.TOPIC_ARN
       }
-      console.log("보내는 메시지 결과물  : ", params)
+      console.log("보내는 메시지 : ", params)
       await sns.publish(params).promise()
-      return res.status(200).json({ message: `구매 실패! 남은 재고: ${product.stock}, 생산요청 진행중` });
+      return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock}, 생산요청 진행중` });
     }
   } else {
     await req.conn.end()
