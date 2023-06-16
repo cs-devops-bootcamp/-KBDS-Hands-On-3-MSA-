@@ -36,6 +36,7 @@ app.post("/checkout", connectDb, async (req, res, next) => {
       return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock - 1}` });
     }
     else {
+      await req.conn.query(setStock(product.product_id, product.stock - 1))
       await req.conn.end()
       const now = new Date().toString()
       const message = `도넛 재고가 10 이하입니다. 도넛 생산을 요청합니다. \n메시지 작성 시각: ${now}`
@@ -57,7 +58,7 @@ app.post("/checkout", connectDb, async (req, res, next) => {
       }
       console.log("보내는 메시지 : ", params)
       await sns.publish(params).promise()
-      return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock}, 생산요청 진행중` });
+      return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock - 1}, 생산요청 진행중` });
     }
   } else {
     await req.conn.end()
