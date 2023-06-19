@@ -5,7 +5,7 @@ const consumer = async (event) => {
     const payload = {
       "MessageGroupId": "stock-arrival-group",
       "MessageAttributeProductId": json.MessageAttributeProductId.Value,
-      "MessageAttributeProductCnt": json.MessageAttributeProductCnt.Value,
+      "MessageAttributeProductName": json.MessageAttributeProductName.Value,
       "OrderStockCnt": 10,
       "CallbackUrl": "your Stock-Lambda-api_gw URL"
     }
