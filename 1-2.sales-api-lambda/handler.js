@@ -48,10 +48,10 @@ app.post("/checkout", connectDb, async (req, res, next) => {
             StringValue: `${product.product_id}`,
             DataType: "Number",
           },
-          MessageAttributeProductCnt: {
-            StringValue: `${product.stock - 1}`,
-            DataType: "Number",
-          }
+          MessageAttributeProductName: {
+            StringValue: `${product.name}`,
+            DataType: "String",
+          },
         },
 
         TopicArn: process.env.TOPIC_ARN

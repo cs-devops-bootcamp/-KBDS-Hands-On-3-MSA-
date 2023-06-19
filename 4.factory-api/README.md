@@ -3,7 +3,7 @@
 
 ## Test
 ```
-curl --location --request POST 'http://3.34.185.91/api/manufactures' \
+curl -X POST 'http://3.34.185.91/api/manufactures' \
 --header 'Content-Type: application/json' \
 --data-raw '{
       "MessageGroupId": "stock-arrival-group",
