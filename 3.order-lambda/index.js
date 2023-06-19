@@ -7,7 +7,7 @@ const consumer = async (event) => {
       "MessageAttributeProductId": json.MessageAttributeProductId.Value,
       "MessageAttributeProductName": json.MessageAttributeProductName.Value,
       "OrderStockCnt": 10,
-      "CallbackUrl": "your Stock-Lambda-api_gw URL"
+      "CallbackUrl": "https://7ihr7z9s6a.execute-api.ap-northeast-2.amazonaws.com/product/donut"
     }
     console.log(`공장으로 보내는 메시지 페이로드 : ${JSON.stringify(payload)}`)
     try {
