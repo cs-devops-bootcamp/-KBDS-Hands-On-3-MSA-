@@ -20,4 +20,4 @@ CREATE TABLE `product` (
 );
 
 INSERT INTO product(product_id, sku, name, price, stock, factory_id, pending)
-VALUES(1,'CP-502101', 'KBDS도넛', 19900, 13, 1, true);
+VALUES(1,'CP-502101', 'KBDS도넛', 19900, 13, 1, false);
