@@ -27,10 +27,15 @@ const increaseStock = (productId, incremental) => `
   UPDATE product SET stock = stock + ${incremental} WHERE product_id = '${productId}'
 `
 
+const setPending = (sku, bool) => `
+  UPDATE product SET pending = '${bool}' WHERE sku = '${sku}'
+`
+
 module.exports = {
   connectDb,
   queries: {
     getProduct,
-    increaseStock
+    increaseStock,
+    setPending
   }
 }

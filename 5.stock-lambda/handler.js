@@ -5,7 +5,7 @@ app.use(express.json())
 
 const {
   connectDb,
-  queries: { getProduct, increaseStock }
+  queries: { getProduct, increaseStock, setPending }
 } = require('./database')
 
 app.post("/product/donut", connectDb, async (req, res, next) => {
@@ -18,6 +18,10 @@ app.post("/product/donut", connectDb, async (req, res, next) => {
     const incremental = parseInt(req.body.OrderStockCnt) || 10
 
     await req.conn.query(increaseStock(product.product_id, incremental))
+    await req.conn.query(
+      setPending('CP-502101', false)
+    )
+    await req.conn.end()
     console.log(`${product.name} 입고 완료! 남은 재고: ${product.stock + incremental}`);
     return res.status(200).json({ message: `${product.name} 입고 완료! 남은 재고: ${product.stock + incremental}` });
   } else {

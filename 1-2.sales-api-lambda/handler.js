@@ -38,7 +38,7 @@ app.post("/checkout", connectDb, async (req, res, next) => {
     else if (product.pending === false && product.stock === 10) {
       await req.conn.query(setStock(product.product_id, product.stock - 1))
       await req.conn.query(
-        setPending('CP-502101')
+        setPending('CP-502101', true)
       )
       await req.conn.end()
       const now = new Date().toString()
