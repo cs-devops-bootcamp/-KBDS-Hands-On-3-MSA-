@@ -26,12 +26,15 @@ const getProduct = (sku) => `
 const setStock = (productId, stock) => `
   UPDATE product SET stock = ${stock} WHERE product_id = '${productId}'
 `
-
+const setPending = (sku) => `
+  UPDATE product SET pending = 'true' WHERE sku = "${sku}"
+`
 
 module.exports = {
   connectDb,
   queries: {
     getProduct,
-    setStock
+    setStock,
+    setPending
   }
 }
