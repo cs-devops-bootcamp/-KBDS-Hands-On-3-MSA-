@@ -7,6 +7,7 @@ CREATE TABLE `product` (
     `price` int  NOT NULL ,
     `stock` int  NOT NULL ,
     `factory_id` int  NOT NULL ,
+    `pending` boolean NOT NULL,
     PRIMARY KEY (
         `product_id`
     ),
@@ -18,5 +19,5 @@ CREATE TABLE `product` (
     )
 );
 
-INSERT INTO product(product_id, sku, name, price, stock, factory_id)
-VALUES(1,'CP-502101', 'KBDS도넛', 19900, 13, 1);
+INSERT INTO product(product_id, sku, name, price, stock, factory_id, pending)
+VALUES(1,'CP-502101', 'KBDS도넛', 19900, 13, 1, true);
