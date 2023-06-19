@@ -9,7 +9,7 @@ const consumer = async (event) => {
       "OrderStockCnt": 10,
       "CallbackUrl": "https://9ckxfwlrda.execute-api.ap-northeast-2.amazonaws.com/product/donut"
     }
-    console.log(`공장으로 보내는 메시지 페이로드 : ${payload}`)
+    console.log(`공장으로 보내는 메시지 페이로드 : ${JSON.stringify(payload)}`)
     try {
       const response = await axios.post(
         `http://project3-factory.coz-devops.click/api/manufactures`,
