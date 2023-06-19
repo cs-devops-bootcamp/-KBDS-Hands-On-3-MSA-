@@ -19,7 +19,7 @@ app.post("/product/donut", connectDb, async (req, res, next) => {
 
     await req.conn.query(increaseStock(product.product_id, incremental))
     await req.conn.query(
-      setPending('CP-502101', false)
+      setPending('CP-502101', 0)
     )
     await req.conn.end()
     console.log(`${product.name} 입고 완료! 남은 재고: ${product.stock + incremental}`);

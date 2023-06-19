@@ -31,14 +31,15 @@ app.post("/checkout", connectDb, async (req, res, next) => {
   )
   const product = result[0]
   if (result.length > 0) {
-    if (product.pending === false && product.stock > 10) {
+    if (product.pending === 0 && product.stock > 10) {
+      console.log("여긴 왔어?");
       await req.conn.query(setStock(product.product_id, product.stock - 1))
       return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock - 1}` });
     }
-    else if (product.pending === false && product.stock === 10) {
+    else if (product.pending === 0 && product.stock === 10) {
       await req.conn.query(setStock(product.product_id, product.stock - 1))
       await req.conn.query(
-        setPending('CP-502101', true)
+        setPending('CP-502101', 1)
       )
       await req.conn.end()
       const now = new Date().toString()
@@ -63,7 +64,7 @@ app.post("/checkout", connectDb, async (req, res, next) => {
       await sns.publish(params).promise()
       return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock - 1}, 생산요청 진행중` });
     }
-    else if (product.pending === true) {
+    else if (product.pending === 1) {
       return res.status(200).json({ message: `생산 진행중입니다. 잠시 후 다시 시도해주세요.` });
     }
   } else {
