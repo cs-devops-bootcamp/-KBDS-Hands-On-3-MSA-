@@ -9,7 +9,7 @@ const sns = new AWS.SNS({ region: "ap-northeast-2" }) // STEP 2
 
 const {
   connectDb,
-  queries: { getProduct, setStock }
+  queries: { getProduct, setStock, setPending }
 } = require('./database')
 
 app.get("/product/donut", connectDb, async (req, res, next) => {
@@ -37,6 +37,9 @@ app.post("/checkout", connectDb, async (req, res, next) => {
     }
     else if (product.pending === false && product.stock === 10) {
       await req.conn.query(setStock(product.product_id, product.stock - 1))
+      await req.conn.query(
+        setPending('CP-502101')
+      )
       await req.conn.end()
       const now = new Date().toString()
       const message = `도넛 재고가 10 이하입니다. 도넛 생산을 요청합니다. \n메시지 작성 시각: ${now}`
