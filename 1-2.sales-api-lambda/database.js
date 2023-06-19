@@ -27,6 +27,7 @@ const setStock = (productId, stock) => `
   UPDATE product SET stock = ${stock} WHERE product_id = '${productId}'
 `
 
+
 module.exports = {
   connectDb,
   queries: {
