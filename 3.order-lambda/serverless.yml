@@ -10,7 +10,7 @@ functions:
   producer:
     handler: index.consumer
     events:
-      - sqs: arn:aws:sqs:ap-northeast-2:807207935784:KBDS-Stock-Empty-Queue
+      - sqs: arn:aws:sqs:ap-northeast-2:807207935784:kbds-stock-empty-queue
 
 plugins:
   - serverless-lift
