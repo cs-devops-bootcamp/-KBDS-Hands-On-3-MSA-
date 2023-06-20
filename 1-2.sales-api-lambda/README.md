@@ -32,3 +32,7 @@ TOPIC_ARN=arn:aws:sns:ap-northeast-2:{YourAccountNumber}:kbds-sns
         - `{"message":"구매 완료! 남은 재고: 9, 생산 요청 진행중"}`
     - 생산 요청 진행 중인 경우
         - `{"message":"생산 진행중입니다. 잠시 후 다시 시도해주세요."}`
+
+## 상품 설정 초기화
+- 수량 11, 진행 false
+터미널에 `curl -X POST YOUR_API_GW_URL/reset` 입력

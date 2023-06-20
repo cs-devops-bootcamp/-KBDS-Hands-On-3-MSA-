@@ -6,8 +6,8 @@ const consumer = async (event) => {
       "MessageGroupId": "stock-arrival-group",
       "MessageAttributeProductId": json.MessageAttributeProductId.Value,
       "MessageAttributeProductName": json.MessageAttributeProductName.Value,
-      "OrderStockCnt": 10,
-      "CallbackUrl": "5.stock-lmabda-URL"
+      "OrderStockCnt": 5,
+      "CallbackUrl": "https://1041o7o9eh.execute-api.ap-northeast-2.amazonaws.com"
     }
     console.log(`공장으로 보내는 메시지 페이로드 : ${JSON.stringify(payload)}`)
     try {

@@ -25,12 +25,13 @@ app.get("/product/donut", connectDb, async (req, res, next) => {
   }
 });
 
-app.post("/pending", connectDb, async (req, res, next) => {
+app.post("/reset", connectDb, async (req, res, next) => {
   await req.conn.query(
     setPending('CP-502101', 0)
   )
+  await req.conn.query(setStock(1, 12))
   await req.conn.end()
-  return res.status(200).json({ message: "변경 완료" });
+  return res.status(200).json({ message: "상품 수량 및 상태 초기화 완료" });
 })
 
 app.post("/checkout", connectDb, async (req, res, next) => {
@@ -40,7 +41,6 @@ app.post("/checkout", connectDb, async (req, res, next) => {
   const product = result[0]
   if (result.length > 0) {
     if (product.pending === 0 && product.stock > 10) {
-      console.log("여긴 왔어?");
       await req.conn.query(setStock(product.product_id, product.stock - 1))
       return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock - 1}` });
     }
