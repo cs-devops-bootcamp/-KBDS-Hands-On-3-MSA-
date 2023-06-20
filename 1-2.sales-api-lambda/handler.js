@@ -25,6 +25,13 @@ app.get("/product/donut", connectDb, async (req, res, next) => {
   }
 });
 
+app.post("/peding", connectDb, async (req, res, next) => {
+  await req.conn.query(
+    setPending('CP-502101', 0)
+  )
+  await req.conn.end()
+})
+
 app.post("/checkout", connectDb, async (req, res, next) => {
   const [result] = await req.conn.query(
     getProduct('CP-502101')
