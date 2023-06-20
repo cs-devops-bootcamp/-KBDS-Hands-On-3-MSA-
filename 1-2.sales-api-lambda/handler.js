@@ -44,7 +44,7 @@ app.post("/checkout", connectDb, async (req, res, next) => {
       await req.conn.query(setStock(product.product_id, product.stock - 1))
       return res.status(200).json({ message: `구매 완료! 남은 재고: ${product.stock - 1}` });
     }
-    else if (product.pending === 0 && product.stock === 10) {
+    else if (product.pending === 0 && product.stock <= 10) {
       await req.conn.query(setStock(product.product_id, product.stock - 1))
       await req.conn.query(
         setPending('CP-502101', 1)

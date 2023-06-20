@@ -1,4 +1,4 @@
-## 도커설치, 빌드, 실행
+## 도커 설치, 빌드, 실행
 - EC2에 ssh 접속 후 
   - `git clone https://github.com/cs-devops-bootcamp/KBDS-Hands-On-3-MSA.git`
 - `cd KBDS-Hands-On-3-MSA/4.factory-api` 
