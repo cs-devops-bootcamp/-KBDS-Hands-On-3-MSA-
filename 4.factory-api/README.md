@@ -8,7 +8,7 @@
 ## Test
 - 요청 예시
   ```
-    curl -X POST 'http://13.124.57.122/api/manufactures' \
+    curl -X POST '{YOUR_EC2_IP}/api/manufactures' \
     --header 'Content-Type: application/json' \
     --data-raw '{
           "MessageGroupId": "stock-arrival-group",

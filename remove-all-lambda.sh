@@ -1,3 +1,4 @@
+# KBDS-Hands-On-3-MSA 경로에서
 # `./remove-all-lmabda.sh` 로 실행
 
 cd 1-2.sales-api-lambda && sls remove && cd ..

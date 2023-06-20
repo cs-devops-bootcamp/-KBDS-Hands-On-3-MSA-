@@ -10,7 +10,7 @@ functions:
   producer:
     handler: index.consumer
     events:
-      - sqs: arn:aws:sqs:ap-northeast-2:807207935784:kbds-sqs
+      - sqs: arn:aws:sqs:ap-northeast-2:{YOUR_ACCOUNT_NUMBER}:kbds-sqs
 
 plugins:
   - serverless-lift

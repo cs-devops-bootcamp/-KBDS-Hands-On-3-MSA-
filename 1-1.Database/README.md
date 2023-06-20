@@ -1,8 +1,8 @@
 # DB 접속
-- 터미널에서 `mysql -h YOUR_DB_ENDPOINT -u YOUR_USER_NAME -p` 입력
+- 터미널에서 `mysql -h {YOUR_DB_ENDPOINT} -u {YOUR_USER_NAME} -p` 입력
 - 비밀번호 입력
 - 예시
-    - `mysql -h database-1.{YourAccountString}.ap-northeast-2.rds.amazonaws.com -u admin -p`
+    - `mysql -h kbds.asd2d72bnc.ap-northeast-2.rds.amazonaws.com -u admin -p`
     - `12345678`
 
 # 데이터베이스 확인
