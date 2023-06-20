@@ -7,12 +7,12 @@ const consumer = async (event) => {
       "MessageAttributeProductId": json.MessageAttributeProductId.Value,
       "MessageAttributeProductName": json.MessageAttributeProductName.Value,
       "OrderStockCnt": 10,
-      "CallbackUrl": "https://7ihr7z9s6a.execute-api.ap-northeast-2.amazonaws.com/product/donut"
+      "CallbackUrl": "5.stock-lmabda-URL"
     }
     console.log(`공장으로 보내는 메시지 페이로드 : ${JSON.stringify(payload)}`)
     try {
       const response = await axios.post(
-        `http://3.34.185.91/api/manufactures`,
+        `4.factory-api-EC2-URL/api/manufactures`,
         payload
       );
       console.log(`응답 정보 : ${response.data}`);
