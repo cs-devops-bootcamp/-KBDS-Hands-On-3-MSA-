@@ -12,7 +12,7 @@ const consumer = async (event) => {
     console.log(`공장으로 보내는 메시지 페이로드 : ${JSON.stringify(payload)}`)
     try {
       const response = await axios.post(
-        `4.factory-api-EC2-URL/api/manufactures`,
+        `http://13.124.57.122/api/manufactures`,
         payload
       );
       console.log(`응답 정보 : ${response.data}`);
