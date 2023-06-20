@@ -25,11 +25,12 @@ app.get("/product/donut", connectDb, async (req, res, next) => {
   }
 });
 
-app.post("/peding", connectDb, async (req, res, next) => {
+app.post("/pending", connectDb, async (req, res, next) => {
   await req.conn.query(
     setPending('CP-502101', 0)
   )
   await req.conn.end()
+  return res.status(200).json({ message: "변경 완료" });
 })
 
 app.post("/checkout", connectDb, async (req, res, next) => {
